@@ -26,7 +26,7 @@ SELECT
     , int_sessions_events_agg.add_to_cart
     , session_length.first_event as first_session_event
     , session_length.last_event as last_session_event
-    , session_length.first_event - session_length.first_event as session_length
+    , session_length.last_event - session_length.first_event as session_length
 from {{ ref('int_sessions_events_agg') }}
 
 
