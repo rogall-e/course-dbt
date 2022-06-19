@@ -30,6 +30,7 @@ SELECT
     , t.average_order_cost
     , t.maximum_order_cost
     , t.average_order_quantity
+    , t.total_items_ordered
 from  (SELECT 
     user_guid
     , count(order_guid) as user_orders
@@ -38,6 +39,7 @@ from  (SELECT
     , avg(order_cost) as average_order_cost
     , max(order_cost) as maximum_order_cost
     , avg(quantity) as average_order_quantity
+    , sum(quantity) as total_items_ordered
   from order_item_agg
   group by 1) as t
 

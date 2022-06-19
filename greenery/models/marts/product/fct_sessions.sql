@@ -19,7 +19,6 @@ SELECT
     , stg_greenery__users.first_name
     , stg_greenery__users.last_name
     , stg_greenery__users.email
-    , int_sessions_events_agg.event_created_at_utc
     , int_sessions_events_agg.package_shipped
     , int_sessions_events_agg.page_view
     , int_sessions_events_agg.checkout
