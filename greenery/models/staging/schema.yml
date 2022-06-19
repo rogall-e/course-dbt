@@ -52,12 +52,9 @@ models:
           - not_null
       - name: order_guid
         description: "If the event is specific to an order (mostly used for checkout)"
-        tests:
-          - not_null
       - name: product_guid
         description: "If the event is specific to a product"
-        tests:
-          - not_null
+
 
   - name: stg_greenery__order_item
     description: Items ordered including order_id, product_id and quantity
@@ -65,7 +62,6 @@ models:
       - name: order_guid
         description: "OrderId of this order"
         tests:
-          - unique
           - not_null
       - name: product_guid
         description: "ProductId of a single item in this order"
@@ -99,7 +95,6 @@ models:
       - name: order_guid
         description: "UUID for each unique order on platform"
         tests:
-          - unique
           - not_null
       - name: promo_guid
         description: "PromoId if any was used in the order"
@@ -129,17 +124,10 @@ models:
           - not_null
       - name: tracking_guid
         description: "Tracking number for the order/package"
-        tests:
-          - unique
-          - not_null
       - name: shipping_service
         description: "Company that was used for shipping"
-        tests:
-          - not_null
       - name: estimated_delivery_at_utc
         description: "Estimated date of delivery"
-        tests:
-          - not_null
       - name: delivered_at_utc
         description: "Actual timestamp of delivery"
       - name: order_status
