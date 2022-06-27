@@ -100,6 +100,9 @@ LEFT JOIN product_check_outs
         {{ dbt_utils.group_by(2) }}
     {% endif %}      
 {% endmacro %}
-````
+```
 > I created this macro and made one of my intermediate models redundant.
 
+## Image of the DAG
+
+![](img/DAG-week3.png)
