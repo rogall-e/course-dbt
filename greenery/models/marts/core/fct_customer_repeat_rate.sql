@@ -9,7 +9,7 @@ with orders_cohort as (
         user_guid
         , count(distinct order_guid) as user_orders
     from {{ ref('stg_greenery__orders') }}
-    GROUP BY 1
+    {{ dbt_utils.group_by(1) }}
 )
 
 , users_bucket as (

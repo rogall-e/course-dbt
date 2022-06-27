@@ -31,6 +31,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+on-run-end:
+  - "{{ grant_select_on_all_tables_in_source_schemas(user='reporting') }}"
+#on-run-end:
+#  - "GRANT USAGE ON SCHEMA {{schema}} TO reporting"
+
 models:
   greenery:
     # Config indicated by + and applies to all files under models/example/
@@ -39,10 +44,15 @@ models:
       schema: staging
     
     marts:
-      +materialized: view
+      +materialized: table
       core:
         +schema: reporting
       marketing:
         +schema: marketing
       product:
         +schema: production
+      intermediate:
+        +schema: intermediate
+  #post-hook:
+  #  - "GRANT SELECT ON {{ this }} TO REPORTING"
+     
