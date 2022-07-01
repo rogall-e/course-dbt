@@ -1,6 +1,6 @@
 {{
     config(
-        materialized = 'view'
+        materialized = 'table'
     )
 }}
 
@@ -10,9 +10,9 @@ with promo_source as (
 
 , renamed_recast as (
     SELECT
-    promo_id as promo_guid
-    , discount
-    , status as promo_status
+        promo_id as promo_guid
+        , discount
+        , status as promo_status
     from promo_source
 )
 
