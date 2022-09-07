@@ -51,8 +51,7 @@ models:
         +schema: marketing
       product:
         +schema: production
-      intermediate:
-        +schema: intermediate
+
   #post-hook:
   #  - "GRANT SELECT ON {{ this }} TO REPORTING"
      
